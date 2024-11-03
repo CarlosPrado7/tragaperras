@@ -1,0 +1,101 @@
+/* Reinicio General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Fondo */
+#fondo img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Estilos del Encabezado */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px; /* Aumentado el padding para un encabezado más grande */
+    background-color: rgba(0, 0, 0, 0.7); /* Color semi-transparente para mejor contraste */
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sección de Casa y Logo */
+#volverPrincipio {
+    display: flex;
+    align-items: center;
+}
+
+#casa {
+    width: 80px; /* Tamaño incrementado */
+    margin-right: 50px; /* Más separación entre el icono de casa y el logo */
+    cursor: pointer;
+}
+
+#logo {
+    height: 100px; /* Tamaño incrementado */
+}
+
+/* Sección de Título y Saldo */
+#tituloYsaldo {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Añadido espacio entre el título y el saldo */
+}
+
+#juego {
+    font-size: 2em; /* Tamaño grande y destacado */
+    font-weight: bold;
+    color: gold; /* Color dorado para dar un estilo llamativo */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Sombra para resaltar el título */
+}
+
+#saldo {
+    font-size: 1.3em; /* Tamaño de fuente incrementado */
+    color: #00ffcc; /* Color brillante estilo casino */
+    font-weight: bold;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el saldo */
+}
+
+/* Sección del Reloj */
+#reloj {
+    font-size: 1.5em; /* Tamaño de fuente mayor */
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
+    border-radius: 8px;
+    text-align: center;
+    min-width: 100px; /* Ajustado para que el reloj quede centrado */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el texto dentro del rectángulo */
+}
+
+/* Icono de Ajustes */
+#ajustes img {
+    width: 70px; /* Icono de ajustes más grande */
+    cursor: pointer;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    #volverPrincipio img, #ajustes img {
+        width: 35px;
+    }
+    #tituloYsaldo h2 {
+        font-size: 1.5em;
+    }
+    #reloj {
+        font-size: 1.2em;
+        min-width: 80px; /* Ancho ajustado para pantallas pequeñas */
+    }
+}
