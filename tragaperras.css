@@ -59,54 +59,61 @@ header {
 }
 
 #juego {
-    font-size: 2em; /* Tamaño grande y destacado */
+    font-size: 3em; 
     font-weight: bold;
-    color: #ffcc00; /* Color dorado para dar un estilo llamativo */
-    text-shadow: 0 0 10px #ffcc00;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Sombra para resaltar el título */
+    color: #ffcc00; 
+    text-shadow: 0px 0px 10px #ffcc00; /* Sombra para resaltar el título */
 }
 
+/* Estilo del saldo */
 #saldo {
-    font-size: 1.3em; /* Tamaño de fuente incrementado */
-    color: #00ffcc; /* Color brillante estilo casino */
-    font-weight: bold;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Sombra para resaltar el saldo */
+    display: flex; 
+    align-items: center; 
+    color: #ffcc00;
+    padding: 10px 10px;
+    margin: 10px;
+    width: fit-content;
 }
+
+#saldo-texto {
+    font-size: 1.2em;
+    margin-right: 2px; 
+}
+
+#mas {
+    width: 16px; 
+    height: 16px; 
+    cursor: pointer; 
+    transition: transform 0.3s; 
+}
+
+#mas:hover {
+    transform: scale(1.1); 
+}
+
 
 /* Sección del Reloj */
 #reloj {
-    font-size: 1.5em; /* Tamaño de fuente mayor */
+    font-size: 1.5em;
     padding: 15px;
-    background-color: rgba(255, 255, 255, 0.3); /* Fondo semi-transparente */
-    border-radius: 8px;
+    background-color: #ffcc00; 
+    border-radius: 50px;
     text-align: center;
-    min-width: 100px; /* Ajustado para que el reloj quede centrado */
+    min-width: 150px; 
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra el texto dentro del rectángulo */
+    justify-content: center; 
 }
 
 /* Icono de Ajustes */
 #ajustes img {
-    width: 70px; /* Icono de ajustes más grande */
+    width: 70px; 
     cursor: pointer;
 }
 
 #ajustes img:hover {
-    transform: scale(1.1); /* Efecto de hover */
+    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
 }
 
-/* Diseño Responsivo */
-@media (max-width: 768px) {
-    #volverPrincipio img, #ajustes img {
-        width: 35px;
-    }
-    #tituloYsaldo h2 {
-        font-size: 1.5em;
-    }
-    #reloj {
-        font-size: 1.2em;
-        min-width: 80px; /* Ancho ajustado para pantallas pequeñas */
-    }
-}
+
