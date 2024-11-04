@@ -20,13 +20,12 @@
 /* Estilos del Encabezado */
 header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 40px; /* Aumentado el padding para un encabezado más grande */
-    background-color: rgba(0, 0, 0, 0.7); /* Color semi-transparente para mejor contraste */
-    color: white;
-    position: relative;
-    z-index: 1;
+    align-items: center;
+    padding: 0.5em 2em;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(34, 34, 34, 0.85));
+    border-bottom: 3px solid #ffcc00;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Sección de Casa y Logo */
@@ -40,6 +39,12 @@ header {
     margin-right: 50px; /* Más separación entre el icono de casa y el logo */
     cursor: pointer;
 }
+
+#casa img:hover {
+    transform: scale(1.1); /* Efecto de hover */
+    transition: transform 0.2s ease-in-out;
+}
+
 
 #logo {
     height: 100px; /* Tamaño incrementado */
@@ -56,7 +61,8 @@ header {
 #juego {
     font-size: 2em; /* Tamaño grande y destacado */
     font-weight: bold;
-    color: gold; /* Color dorado para dar un estilo llamativo */
+    color: #ffcc00; /* Color dorado para dar un estilo llamativo */
+    text-shadow: 0 0 10px #ffcc00;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6); /* Sombra para resaltar el título */
 }
 
@@ -84,6 +90,11 @@ header {
 #ajustes img {
     width: 70px; /* Icono de ajustes más grande */
     cursor: pointer;
+}
+
+#ajustes img:hover {
+    transform: scale(1.1); /* Efecto de hover */
+    transition: transform 0.2s ease-in-out;
 }
 
 /* Diseño Responsivo */
