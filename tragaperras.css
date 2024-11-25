@@ -1,4 +1,9 @@
-/* Reinicio General */
+:root {
+    --primary-color: #ffcc00;
+    --secondary-color: #007bff;
+}
+
+/*Estilo general*/
 * {
     margin: 0;
     padding: 0;
@@ -6,121 +11,708 @@
     font-family: Arial, sans-serif;
 }
 
-/* Fondo */
-#fondo img {
-    width: 100%;
+/*Estilo del body*/
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     height: 100vh;
-    object-fit: cover;
+    margin: 0;
+    background-color: #2c3e50;
+}
+
+/*Estilo de la imagen del fondo*/
+#fondo {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('assets/fondoTragaperras.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
-/* Estilos del Encabezado */
-header {
+/* Estilo del header */
+#header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5em 2em;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.85), rgba(34, 34, 34, 0.85));
+    padding: 0em 0.5em;
+    background: linear-gradient(90deg, #000000d9, rgba(34, 34, 34, 0.85));
     border-bottom: 3px solid #ffcc00;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 70px;
 }
 
-/* Sección de Casa y Logo */
+/*Volver a la pagina principal del casino*/
 #volverPrincipio {
     display: flex;
     align-items: center;
 }
 
 #casa {
-    width: 80px; /* Tamaño incrementado */
-    margin-right: 50px; /* Más separación entre el icono de casa y el logo */
+    width: 40px;
+    margin-right: 20px;
     cursor: pointer;
-}
-
-#casa img:hover {
-    transform: scale(1.1); /* Efecto de hover */
     transition: transform 0.2s ease-in-out;
 }
 
-
-#logo {
-    height: 100px; /* Tamaño incrementado */
+#casa:hover {
+    transform: scale(1.1);
 }
 
-/* Sección de Título y Saldo */
-#tituloYsaldo {
+/*Estilo al logo del casino*/
+#logo {
+    height: 60px;
+}
+
+/*Titulo del juego que estas jugando*/
+#titulo {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Añadido espacio entre el título y el saldo */
 }
 
 #juego {
-    font-size: 3em; 
+    font-size: 2.5em;
     font-weight: bold;
-    color: #ffcc00; 
-    text-shadow: 0px 0px 10px #ffcc00; /* Sombra para resaltar el título */
-}
-
-/* Estilo del saldo */
-#saldo {
-    display: flex; 
-    align-items: center; 
     color: #ffcc00;
-    padding: 10px 10px;
-    margin: 10px;
-    width: fit-content;
+    text-shadow: 0px 0px 10px #ffcc00;
 }
 
-#saldo-texto {
+/* Saldo de la tragaperras */
+#saldo {
+    display: flex;
+    align-items: center;
+    color: #ffcc00;
     font-size: 1.2em;
-    margin-right: 2px; 
 }
 
 #mas {
-    width: 16px; 
-    height: 16px; 
-    cursor: pointer; 
-    transition: transform 0.3s; 
-}
-
-#mas:hover {
-    transform: scale(1.1); 
-}
-
-
-/* Sección del Reloj */
-#reloj {
-    font-size: 1.5em;
-    padding: 15px;
-    background-color: rgb(255, 204, 0); 
-    border-radius: 50px;
-    text-align: center;
-    min-width: 150px; 
-    display: flex;
-    align-items: center;
-    justify-content: center; 
-}
-
-/* Icono de Ajustes */
-#ajustes img {
-    width: 70px; 
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
     cursor: pointer;
-}
-
-#ajustes img:hover {
-    transform: scale(1.1);
     transition: transform 0.2s ease-in-out;
 }
 
+#mas:hover {
+    transform: scale(1.3);
+}
+
+#retirar {
+    width: 16px;
+    height: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#retirar:hover {
+    transform: scale(1.3);
+}
+
+/*Modal pasar a monedas dinero*/
+.modalMonedas {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 24, 0.705);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-monedas {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px; 
+    width: 100%;
+    max-width: 400px; 
+    text-align: center; 
+}
+
+.closeModalMonedas {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.closeModalMonedas:hover{
+    color: #ff0000; 
+}
+
+.modal-monedas h2 {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.modal-monedas p {
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.modal-monedas input[type="number"]{
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 5px ridge #ffcc00;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+.modal-monedas button {
+    background-color: #ffcc00;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-monedas button:hover {
+    background-color: #0033ff;
+}
+
+/*Modal para retirar monedas*/
+.modalRetirar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 24, 24, 0.705);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-retirar {
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px; 
+    width: 100%;
+    max-width: 400px; 
+    text-align: center; 
+}
+
+.closeModalRetirar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.closeModalRetirar:hover{
+    color: #ff0000; 
+}
+
+.modal-retirar h2 {
+    font-size: 24px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.modal-retirar p {
+    font-size: 18px;
+    color: #ffcc00;
+}
+
+.modal-retirar input[type="number"]{
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 5px ridge #ffcc00;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    color: #000000;
+}
+
+.modal-retirar button {
+    background-color: #ffcc00;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-retirar button:hover {
+    background-color: #0033ff;
+}
 
 
+/* Reloj de la página */
+#reloj {
+    font-size: 1.2em;
+    padding: 10px 15px;
+    background-color: #ffcc00;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+}
+
+/*Imagen del menu lateral*/
+#menuAjustes img {
+    width: 60px;
+    cursor: pointer;
+}
+
+/*Estilo al menu lateral*/
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; 
+    height: 30vh;
+    background-color: #ffcc00;
+    box-shadow: 0px 0px 10px #ffcc00;
+    z-index: 1000;
+    transform: translateX(120%);
+    transition: transform 0.3s ease;
+    padding: 10px;
+}
+
+.menu-lateral.show {
+    transform: translateX(0);
+}
+
+.menu-content {
+    padding: 10px;  
+}
+
+.menu-content h2 {
+    color: #000;
+    text-align: center;
+    font-size: 1.2em; 
+    border-bottom: 2px solid #000;
+    margin-bottom: 10px;
+}
+
+/* Volumen, modo noche, idioma */
+.volumen, .daltonico, .idioma {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px; 
+}
+
+.volumen img,
+.daltonico img,
+.idioma img {
+    width: 30px;  
+    height: auto;
+}
+
+.volumen input[type="range"] {
+    width: 100px; 
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em; 
+    color: #000;
+    cursor: pointer;
+}
+
+.close:hover{
+    color: #007bff;
+    transform: scale(1.1);
+}
+
+#blanco-negro,
+#imagenIdioma {
+    width: 25px;  
+    cursor: pointer;
+}
 
 
+/*Estilo de la tragaperras*/
+/* --- CONTENEDOR PRINCIPAL --- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+    gap: 20px; 
+}
 
+/* --- TRAGAPERRAS --- */
+.tragaperras {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
 
+/* Contenedor central de la tragaperras (pantalla y reels) */
+.centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Pantalla de la tragaperras */
+.pantalla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- REELS DE LA TRAGAPERRAS --- */
+.reels {
+    display: flex;
+    padding: 5%;
+    border: 20px solid;
+    border-image-source: url('assets/borde.jpg');
+    border-image-slice: 800;
+    border-image-repeat: round;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo de cada reel */
+.reel {
+    width: 120px;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #007bff;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Imágenes dentro de los reels */
+.reel img {
+    width: 100%;
+    height: 33.33%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* --- MENSAJE DE RESULTADO --- */
+#mensaje {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    max-width: 30%;
+    flex-shrink: 1; /*Reduce el contenido si es necesario*/
+    width: 30%;
+}
+
+/* --- PULPO ANIMADO (IZQUIERDA) --- */
+#pulpo, .tragaperras, #gif {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+#pulpo {
+    animation: nadar 4s ease-in-out infinite;
+}
+
+/* Animación de nadar del pulpo */
+@keyframes nadar {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(20px) translateY(10px); }
+    50% { transform: translateX(40px) translateY(0); }
+    75% { transform: translateX(20px) translateY(-10px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* Imagen del pulpo */
+.pulpo, .pez, .tragaperras img {
+    max-width: 100%; 
+    height: auto; 
+    width: 250px;
+}
+
+/* --- FOOTER (INFORMACIÓN, APUESTAS, CONTROLES) --- */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00000096;
+    padding: 10px;
+    border-top: 4px solid #ffcc00;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+}
+
+/* Sección de información */
+#informacion {
+    margin-right: 10px; 
+}
+#informacion img {
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    padding: 5%;
+}
+
+/* Contenedor de monedas y apuesta */
+.apuestas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 20px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Botones del footer */
+.simbolos {
+    display: flex;
+    align-items: center;
+}
+
+/* Botón de girar */
+#girar img {
+    width: 10vw; 
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Botones de más y menos */
+#menos img, #masApuesta img {
+    width: 3vw; 
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Efecto hover para todos los botones */
+.simbolos img:hover {
+    transform: scale(1.2);
+}
+
+/*MODAL DE INFORMACION*/
+.modalInformacion {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    overflow: auto; 
+}
+
+.modal-informacion {
+    position: relative;
+    background-color: #000000;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease-out;
+    border: 2px solid #ffcc00;
+}
+
+.modal-informacion h2 {
+    font-size: 24px;
+    color: #ffff00; 
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 5px #ffff00; 
+}
+
+.closeModalInformacion {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.closeModalInformacion:hover {
+    color: #0033ff;
+    transform: scale(1.2);
+}
+
+#info, #bono {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+#info img, #bono img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: 5px dotted #ffcc00;
+    border-radius: 50px;
+    background: #0033ff; 
+    transition: transform 0.2s ease;
+}
+
+#info img:hover, #bono img:hover {
+    transform: scale(1.1); 
+}
+
+.infoPremio {
+    font-size: 16px;
+    color: #0033ff;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+#bono {
+    margin-top: 20px;
+    background-color: #808080;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px double #ffff00; 
+}
+
+#bono .infoPremio {
+    color: #0033ff;
+    font-size: 18px;
+    text-shadow: 1px 1px 2px #ffcc00;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/*MODAL DEL GANADOR*/
+.modalGanador {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow: auto; 
+}
+
+.modal-contenido {
+    position: relative;
+    background: linear-gradient(135deg, #ffcc00, #0033ff); 
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    animation: bounceIn 0.5s ease-out; 
+}
+
+.closeModalGanador {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #ffcc00;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.closeModalGanador:hover {
+    color: #0033ff;
+    transform: scale(1.2);
+}
+
+.modal-contenido h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px #0033ff;
+}
+
+#mensajeGanador {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ffff00;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px #ffff00;
+}
+
+.btn-jugar {
+    background-color: #ffcc00;
+    color: #0033ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px #000;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-jugar:hover {
+    background-color: #ffff00;
+    transform: scale(1.1);
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 

@@ -6,13 +6,14 @@
     <title>Tragaperras</title>
     <link rel="icon" href="assets/logoBarra.png" type="image/icon type">
     <link rel='stylesheet' type='text/css' media='screen' href='tragaperras.css'>
+    <script src="https://unpkg.com/i18next@latest/i18next.min.js"></script>
 </head>
-    
-    <div id="fondo">
-        <img src="assets/fondoTragaperras.jpeg">
-    </div>
 
-    <header>
+<body>
+
+    <div id="fondo"></div>
+
+    <section id="header">
         <div id="volverPrincipio">
             <a href="../pagPrincipal/paginaPrincipal.html">
                 <img src="assets/hause.png" id="casa">
@@ -25,37 +26,175 @@
         </div>
 
         <div id="saldo">
-            <p id="saldo">Tu Saldo:0€</p>
-            <img src="assets/mas.png" id="mas">
+            <div id="saldoPag" class="saldoPag">
+                <p>Tu Saldo:<span id="saldoValor"></span></p>
+            </div>
+            <div id="sumarSaldo" class="sumarSaldo">
+                <img src="assets/mas.png" id="mas" alt="Añadir saldo">
+            </div>
+            <div id="restarSaldo" class="restarSaldo">
+                <img src="assets/retirar.png" id="retirar" alt="Retirar saldo">
+            </div>
+        </div>
+
+        <!--Modal añadir monedas-->
+        <div id="modalMonedas" class="modalMonedas">
+            <div  class="modal-monedas">
+                <span id="closeModalMonedas" class="closeModalMonedas">&times;</span>
+                <h2>Convertir a monedas</h2>
+                <p>¿Cuanto dinero quieres convertir?</p>
+                <input type="number" id="inputMonedas" placeholder="Dinero" min="0" step="0.01">
+                <button id="convertir">Convertir</button>
+                <p id="mensajeErrorSumar">Introduce saldo para jugar.</p>
+            </div>
+        </div>
+
+        <!--Modal de retirar monedas-->
+        <div id="modalRetirar" class="modalRetirar">
+            <div class="modal-retirar">
+                <span id="closeModalRetirar" class="closeModalRetirar">&times;</span>
+                <h2>Retirar Monedas</h2>
+                <p>¿Cuantas monedas quieres retirar?</p>
+                <input type="number" id="inputRetirar" placeholder="Dinero" min="0" step="0.01">
+                <button id="retirarMon">Retirar</button>
+                <p id="mensajeErrorRetirar">Retira las monedas</p>
+            </div>
         </div>
 
         <div id="reloj"></div>
 
-        <div id="ajustes">
-            <img src="assets/ajustes.png">
+        <div id="menuAjustes" class="menuAjustes">
+            <img src="assets/ajustes.png" alt="Ajustes" id="iconoAjustes">
+        </div>
+
+        <div id="menuLateral" class="menu-lateral">
+            <div class="menu-content">
+                <span class="close" id="cerrarMenu">&times;</span>
+                <h2>Ajustes</h2>
+
+                <div id="volumen" class="volumen">
+                    <img src="assets/volumen.png" alt="Bajar volumen">
+                    <input type="range" min="0" max="1" value="0.5" step="0.1">
+                    <img src="assets/sube-el-volumen.png" alt="Subir volumen">
+                </div>
+
+                <div id="daltonico" class="daltonico">
+                    <p>Blanco y negro</p>
+                    <img src="assets/blancoNegro.png" alt="Modo blanco y negro" id="blanco-negro">
+                </div>
+
+                <div id="idioma" class="idioma">
+                    <p>Idioma de la página</p>
+                    <img id="imagenIdioma" src="assets/espana.png" alt="Idioma español" onclick="traducir()">
+                </div>
+
+                <div id="juego"></div>
+            </div>
         </div>
         
-    </header>
+    </section>
 
-    <body>
-        <div id="principal">
-            <img src="assets/fondoPantalla.jpeg" alt="Fondo de pantalla">
-            <div id="pantallaTragaperras">
-                <div id="imagenes">
-                    <div class="fila">
-                        <img src="assets/iconoDelfin.png" alt="Delfin">
-                        <img src="assets/iconoPez.png" alt="Pez">
-                        <img src="assets/iconoTiburon.png" alt="Tiburón">
-                        <img src="assets/iconoCaballo.png" alt="Caballo">
-                        <img src="assets/iconoTortuga.png" alt="Tortuga">
+    <div class="container">
+        <div id="pulpo">
+            <!--PULPO CON EFECTO-->
+            <img src="assets/pulpo.png" alt="Pulpo" class="pulpo" id="pulpoAnimado">
+        </div>
+    
+        <div class="tragaperras" id="tragaperras">
+            <!--TRAGAPERRAS-->
+            <div class="centro">
+                <div class="pantalla" id="pantalla">
+                    <div class="reels">
+                        <div class="reel" id="reel1">
+                            <img src="assets/icono1.png" alt="icono1">
+                            <img src="assets/icono2.png" alt="icono1">
+                            <img src="assets/icono3.png" alt="icono1">
+                        </div>
+                        <div class="reel" id="reel2">
+                            <img src="assets/icono4.png" alt="icono2">
+                            <img src="assets/icono5.png" alt="icono2">
+                            <img src="assets/icono2.png" alt="icono2">
+                        </div>
+                        <div class="reel" id="reel3">
+                            <img src="assets/icono1.png" alt="icono3">
+                            <img src="assets/icono5.png" alt="icono3">
+                            <img src="assets/icono4.png" alt="icono3">
+                        </div>
                     </div>
                 </div>
             </div>
-            <button id="jugar">Jugar</button>
+            <div id="footer" class="footer">
+                <div id="informacion" class="informacion">
+                    <img src="assets/informacion.png" id="informacionImg">
+                </div>
+                <div id="apuestas" class="apuestas">
+                    <div id="monedas" class="monedas">
+                        <p>Monedas:</p>
+                    </div>
+                    <div id="apuesta" class="apuesta">
+                        <p>Apuesta: 20</p>
+                    </div>
+                </div>
+                <div id="mensaje" class="mensaje">
+                    <p>¡Buena Suerte!</p>
+                </div>
+                <div id="simbolos" class="simbolos">
+                    <div id="menos" class="menos">
+                        <img src="assets/menos.png" alt="Menos">
+                    </div>
+                    <div id="girar" class="girar">
+                        <img src="assets/girar2.png" alt="Girar">
+                    </div>
+                    <div id="masApuesta" class="masApuesta">
+                        <img src="assets/masApuesta.png" alt="Mas">
+                    </div>
+                </div>
+            </div>
         </div>
         
-    </body>
+        <div id="gif">
+            <!--GIF TORTUGA-->
+            <img src="assets/fish-7464.gif" alt="pez" class="pez">
+        </div>
+    </div>
+
+    <!--MODAL DE INFORMACION DE PREMIOS-->
+    <div id="modalInformacion" class="modalInformacion">
+        <div class="modal-informacion">
+            <span id="closeModalInformacion" class="closeModalInformacion">&times;</span>
+            <h2>PREMIOS</h2>
+            <p>Todos los iconos tienen premios</p>
+            <div id="info">
+                <img src="assets/icono3.png" alt="Icono 3">
+                <p class="infoPremio">Apuesta * 1</p>
+                <img src="assets/icono5.png" alt="Icono 5">
+                <p class="infoPremio">Apuesta * 1</p>
+                <img src="assets/icono1.png" alt="Icono 1">
+                <p class="infoPremio">Apuesta * 2</p>
+                <img src="assets/icono2.png" alt="Icono 2">
+                <p class="infoPremio">Apuesta * 3</p>
+            </div>    
+            <div id="bono">
+                <img src="assets/icono4.png" alt="Icono 4">
+                <p class="infoPremio">Apuesta * 5</p>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL DEL GANADOR-->
+    <div id="modalGanador" class="modalGanador">
+        <div class="modal-contenido">
+            <span id="closeModalGanador" class="closeModalGanador">&times;</span>
+            <h2>¡FELICITACIONES!</h2>
+            <p id="mensajeGanador">Ganaste <span id="recompensa"></span> monedas</p>
+            <button id="jugarDeNuevo" class="btn-jugar">¡Jugar de nuevo!</button>
+        </div>
+    </div>
+
+    <audio id="presionarBoton" src="assets/presionarBoton.mp3"></audio>
+    <audio id="sonidoPremio" src="assets/premio.mp3"></audio>
 
     <script src="tragaperras.js"></script>
 
+</body>
 </html>
