@@ -1,0 +1,24 @@
+DISEÑO 1,5
+
+SALDO OK
+
+TIRADAS OK
+
+PREMIOS OK
+
+AJUSTES 0,75 idioma
+
+FUNC. EXTRA
+
+JUGABILIDAD 1
+
+Al ganar, notificar la comb ganadora y quitar el modal pasados 2 segundos para que sea dinamico
+
+
+
+POSIBLES MEJORAS
+
+Añadir columnas, y asi rellenamos espacio
+
+Añadir mas combinaciones a las victorias
+
